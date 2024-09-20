@@ -245,6 +245,21 @@ const resetPassword = async (req, res) => {
   }
 };
 
+const getAdminDetailsById = async (req, res) => {
+  const { _id } = req.body;
+  try {
+    const admin = await Admin.findOne({ _id });
+
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found" });
+    }
+
+    res.status(200).json({ admin });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
 module.exports = {
   login,
   verifyOtp,
@@ -253,4 +268,5 @@ module.exports = {
   verifyOtppasscode,
   forgotPassword,
   resetPassword,
+  getAdminDetailsById
 };

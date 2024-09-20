@@ -7,6 +7,7 @@ const {
   verifyOtppasscode,
   forgotPassword,
   resetPassword,
+  getAdminDetailsById,
 } = require("../Controller/AdminController");
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.post("/verifypasscode", verifyOtppasscode);
 router.post("/verify-session", verifySession);
 router.post("/forgot-password", forgotPassword);
 router.post("/reset-password", resetPassword);
+router.post("/getAdminDetailsById",getAdminDetailsById);
 
 module.exports = router;
